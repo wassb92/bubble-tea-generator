@@ -44,6 +44,7 @@ class App extends React.Component {
         },
         swatch: {
           padding: '5px',
+          paddingRight: '90%',
           display: 'inline-block',
           cursor: 'pointer',
         },
