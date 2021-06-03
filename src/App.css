@@ -9,8 +9,7 @@
   background-color: aqua;
   text-align: center;
   float: center;
-  display: inline-block;
-  width: 64%;
+  width: 80%;
 }
 
 .option {
@@ -18,7 +17,7 @@
   text-align: right;
   float: right;
   display: inline-block;
-  width: 16%;
+  width: 20%;
 }
 
 .container {

@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useState, Component } from 'react';
-import ChangeColor from './change_color.js'
+import React, { Component } from 'react';
+import {BorderColor} from './change_color.js'
 
 class App extends Component {
   render() {
@@ -90,7 +90,11 @@ class Bubbletea extends Component {
 class Option extends Component {
   render() {
     return (
-      <ChangeColor />
+      <BorderColor />
+      // ,
+      // <TeaColor />,
+      // <BubbleColor />,
+      // <SmileColor />
     );
   }
 }
