@@ -2,37 +2,50 @@ import React from 'react';
 import './App.css';
 import reactCSS from 'reactcss';
 import { SketchPicker } from 'react-color';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-class BorderColor extends React.Component {
+
+const Styles = styled.div``;
+const svgRotate = {
+  hidden: { rotate: -360},
+  visible: {
+    rotate: 0,
+    transition: {duration: 1}
+  }
+}
+
+class ChangeColor extends React.Component {
   state = {
-      displayColorPicker_border: false,
-      displayColorPicker_tea: false,
-      displayColorPicker_bubble: false,
-      displayColorPicker_smile: false,
-      color_border: {
-        r: '168',
-        g: '0',
-        b: '183',
-        a: '100',
-      },
-      color_tea: {
-        r: '34',
-        g: '25',
-        b: '77',
-        a: '100',
-      },
-      color_bubble: {
-        r: '0',
-        g: '0',
-        b: '0',
-        a: '1',
-      },
-      color_smile: {
-        r: '255',
-        g: '255',
-        b: '255',
-        a: '255',
-      },
+    displayColorPicker_border: false,
+    displayColorPicker_tea: false,
+    displayColorPicker_bubble: false,
+    displayColorPicker_smile: false,
+    color_border: {
+      r: '0',
+      g: '166',
+      b: '255',
+      a: '100',
+    },
+    color_tea: {
+      r: '115',
+      g: '154',
+      b: '255',
+      a: '100',
+    },
+    color_bubble: {
+      r: '0',
+      g: '0',
+      b: '0',
+      a: '1',
+    },
+    color_smile: {
+      r: '255',
+      g: '255',
+      b: '255',
+      a: '255',
+    },
+    value: 50,
   };
 
   /* */
@@ -60,7 +73,7 @@ class BorderColor extends React.Component {
   handleChange_tea = (color_tea) => {
     this.setState({ color_tea: color_tea.rgb });
   };
-  
+
   /* */
   handleClick_bubble = () => {
     this.setState({ displayColorPicker_bubble: !this.state.displayColorPicker_bubble });
@@ -86,7 +99,10 @@ class BorderColor extends React.Component {
   handleChange_smile = (color_smile) => {
     this.setState({ color_smile: color_smile.rgb });
   };
-  
+
+  /* */
+  handleOnChange = (e) => this.setState({ value: e.target.value })
+
   render() {
     const css_option = `
     div {
@@ -143,9 +159,12 @@ class BorderColor extends React.Component {
     let color_tea = styles.color_tea.background;
     let color_bubble = styles.color_bubble.background;
     let color_smile = styles.color_smile.background;
+
     return (
       <div>
         <div className="option">
+
+          {/* Border Option */}
           <div style={styles.swatch} onClick={this.handleClick_border}>
             <h1>Border</h1>
             <style>{css_option}</style>
@@ -157,6 +176,7 @@ class BorderColor extends React.Component {
           </div> : null}
 
 
+          {/* Tea Option */}
           <div style={styles.swatch} onClick={this.handleClick_tea}>
             <h1>Tea</h1>
             <div style={styles.color_tea} />
@@ -166,7 +186,8 @@ class BorderColor extends React.Component {
             <SketchPicker style={{ position: 'relative' }} color_tea={this.state.color_tea} onChange={this.handleChange_tea} />
           </div> : null}
 
-          
+
+          {/* Bubble Option */}
           <div style={styles.swatch} onClick={this.handleClick_bubble}>
             <h1>Bubble</h1>
             <div style={styles.color_bubble} />
@@ -177,6 +198,7 @@ class BorderColor extends React.Component {
           </div> : null}
 
 
+          {/* Smile Option */}
           <div style={styles.swatch} onClick={this.handleClick_smile}>
             <h1>Smile </h1>
             <div style={styles.color_smile} />
@@ -185,11 +207,26 @@ class BorderColor extends React.Component {
             <div style={styles.cover} onClick={this.handleClose_smile} />
             <SketchPicker style={{ position: 'relative' }} color_smile={this.state.color_smile} onChange={this.handleChange_smile} />
           </div> : null}
+          <br></br><br></br>
 
+          {/* Resize Option */}
+          <Styles>
+            <h1>Resize</h1>
+            <input type="range" min={0} max={100} value={this.state.value} className="slider" onChange={this.handleOnChange} />
+            <div className="value">
+              {this.state.value} %
+            <br></br><br></br>
+            <br></br><br></br>
+            <br></br><br></br>
+            <br></br><br></br>
+            <br></br>            </div>
+          </Styles>
 
         </div>
         <div className="bubbletea">
-          <svg xmlns="http://www.w3.org/2000/svg" width="250" viewBox="0 60 150.2 466">
+          <motion.svg xmlns="http://www.w3.org/2000/svg" width={this.state.value * 5} viewBox="0 60 150.2 466"
+            variants={svgRotate} initial="hidden" animate="visible"
+            >
             <g id="menu">
               <g id="tea">
                 <path opacity="0.52" fill={color_tea} d="M109.1,71.7l-8.9,81.9c-1.4,13-12.3,22.9-25.4,22.9l-2.3,0l-14.8,0c-0.8,0-1.5,0-2.2-0.1h0c-12-1.1-21.7-10.6-23-22.8l-8.6-82c3.8,1.4,7.6,2.7,11.3,3.7c1.7,0.5,3.4,0.9,5.1,1.3h0c2.1,0.5,4.3,0.9,6.4,1.3l0,0c1.9,0.3,3.7,0.6,5.6,0.8c2.5,0.3,5,0.5,7.5,0.6c8,0.4,16.1,0,24.3-1.3C92.5,76.8,100.8,74.7,109.1,71.7z" />
@@ -220,7 +257,7 @@ class BorderColor extends React.Component {
                 </g>
               </g>
             </g>
-          </svg>
+          </motion.svg>
         </div>
       </div>
     )
@@ -228,5 +265,5 @@ class BorderColor extends React.Component {
 }
 
 export {
-        BorderColor,
+  ChangeColor,
 }

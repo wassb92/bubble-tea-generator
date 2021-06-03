@@ -2,30 +2,23 @@
   background-color:rgb(0, 131, 136);
   float: left;
   width: 20%;
-  display: inline-block;
 }
 
 .bubbletea {
   background-color: aqua;
   text-align: center;
   float: center;
-  width: 80%;
 }
 
 .option {
   background-color:rgb(0, 131, 136);
   text-align: right;
   float: right;
-  display: inline-block;
   width: 20%;
 }
 
-.container {
-  position: relative;
-}
-
 #menu {
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(0, 3, 160);
   text-align: center;
 }
 
