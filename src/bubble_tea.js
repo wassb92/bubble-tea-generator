@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react'
 
-const default_name = "Boba Tea";
+const default_name = "Tubble Bea";
 
 function App() {
     let [name, setData] = useState(default_name)

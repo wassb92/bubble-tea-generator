@@ -8,10 +8,10 @@ import { motion } from 'framer-motion';
 
 const Styles = styled.div``;
 const svgRotate = {
-  hidden: { rotate: -360},
+  hidden: { rotate: -360 },
   visible: {
     rotate: 0,
-    transition: {duration: 1}
+    transition: { duration: 1 }
   }
 }
 
@@ -215,18 +215,14 @@ class ChangeColor extends React.Component {
             <input type="range" min={0} max={100} value={this.state.value} className="slider" onChange={this.handleOnChange} />
             <div className="value">
               {this.state.value} %
-            <br></br><br></br>
-            <br></br><br></br>
-            <br></br><br></br>
-            <br></br><br></br>
-            <br></br>            </div>
+            </div>
           </Styles>
 
         </div>
         <div className="bubbletea">
           <motion.svg xmlns="http://www.w3.org/2000/svg" width={this.state.value * 5} viewBox="0 60 150.2 466"
             variants={svgRotate} initial="hidden" animate="visible"
-            >
+          >
             <g id="menu">
               <g id="tea">
                 <path opacity="0.52" fill={color_tea} d="M109.1,71.7l-8.9,81.9c-1.4,13-12.3,22.9-25.4,22.9l-2.3,0l-14.8,0c-0.8,0-1.5,0-2.2-0.1h0c-12-1.1-21.7-10.6-23-22.8l-8.6-82c3.8,1.4,7.6,2.7,11.3,3.7c1.7,0.5,3.4,0.9,5.1,1.3h0c2.1,0.5,4.3,0.9,6.4,1.3l0,0c1.9,0.3,3.7,0.6,5.6,0.8c2.5,0.3,5,0.5,7.5,0.6c8,0.4,16.1,0,24.3-1.3C92.5,76.8,100.8,74.7,109.1,71.7z" />
