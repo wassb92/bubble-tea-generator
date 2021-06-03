@@ -13,6 +13,12 @@
   animation: anim 7s ease forwards;
 }
 
+@keyframes anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .option {
   background-color:rgb(0, 131, 136);
   text-align: right;
@@ -30,7 +36,6 @@
 
 #c_border {
   stroke:rgb(255, 255, 255);
-  fill:brown;
   transform: translate(8px,20px);
 }
 
@@ -42,7 +47,7 @@
 
 #c_bubble {
   fill: #FFFFFF;
-  stroke:rgb(92, 92, 92);
+  stroke:rgb(0, 0, 0);
   transform: translate(8px, 330px);
 }
 
@@ -76,12 +81,6 @@
 #smile {
   stroke:rgb(92, 92, 92);
   transform: translate(8px,200px);
-}
-
-@keyframes anim {
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 
 /* !Bubble Tea */
