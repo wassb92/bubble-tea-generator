@@ -183,7 +183,7 @@ class ChangeColor extends React.Component {
           </div>
           {this.state.displayColorPicker_tea ? <div style={styles.popover}>
             <div style={styles.cover} onClick={this.handleClose_tea} />
-            <SketchPicker style={{ position: 'relative' }} color_tea={this.state.color_tea} onChange={this.handleChange_tea} />
+            <SketchPicker style={{ position: 'relative' }} color={this.state.color_tea} onChange={this.handleChange_tea} />
           </div> : null}
 
 
@@ -194,7 +194,7 @@ class ChangeColor extends React.Component {
           </div>
           {this.state.displayColorPicker_bubble ? <div style={styles.popover}>
             <div style={styles.cover} onClick={this.handleClose_bubble} />
-            <SketchPicker style={{ position: 'relative' }} color_bubble={this.state.color_bubble} onChange={this.handleChange_bubble} />
+            <SketchPicker style={{ position: 'relative' }} color={this.state.color_bubble} onChange={this.handleChange_bubble} />
           </div> : null}
 
 
@@ -205,7 +205,7 @@ class ChangeColor extends React.Component {
           </div>
           {this.state.displayColorPicker_smile ? <div style={styles.popover}>
             <div style={styles.cover} onClick={this.handleClose_smile} />
-            <SketchPicker style={{ position: 'relative' }} color_smile={this.state.color_smile} onChange={this.handleChange_smile} />
+            <SketchPicker style={{ position: 'relative' }} color={this.state.color_smile} onChange={this.handleChange_smile} />
           </div> : null}
           <br></br><br></br>
 
